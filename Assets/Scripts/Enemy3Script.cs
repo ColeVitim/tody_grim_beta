@@ -646,8 +646,9 @@ IEnumerator ShootRC()
 
 IEnumerator ShootTimer()
 {
-    anime.Play("PlayerGun");
+    anime.Play("PlayerAim");
     yield return new WaitForSeconds(Random.Range(1f, 1.5f));
+    anime.Play("PlayerGun");
     Shoot();
 }
 
