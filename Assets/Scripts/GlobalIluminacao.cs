@@ -13,7 +13,7 @@ public class GlobalIluminacao : MonoBehaviour
     void Start()
     {
         light = GetComponent<Light2D>();
-        light.intensity = 0.3f;
+        light.intensity = 0.01f;
     }
 
     // Update is called once per frame
