@@ -36,6 +36,7 @@ public class FamiliarBulletScript : MonoBehaviour
             //Vector3 direction = (target.position - transform.position).normalized;
             float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;   
             Physics2D.IgnoreLayerCollision(6, 9, true);
+            Destroy(gameObject, .5f);
 
     }
     

@@ -70,6 +70,7 @@ public class Enemy3Script : MonoBehaviour
     bool isWaiting;
     bool CanShoot = true;
     bool isShooting;
+    bool canHide = true;
 
 
     string magiaC;
@@ -219,8 +220,9 @@ public class Enemy3Script : MonoBehaviour
 
     void Hiding()
     {
-        if (!isCasting && !isHiding && !isShooting)
+        if (!isCasting && !isHiding && !isShooting && canHide)
         {
+            canHide = false;
             StartCoroutine(HidingR());
         }
     }
@@ -568,9 +570,15 @@ public class Enemy3Script : MonoBehaviour
         Player.transform.position = new Vector3 (Player.transform.position.x, Player.transform.position.y, 3);
         yield return new WaitForSeconds(1);
         Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, 1);
-
+        StartCoroutine(HidingC());
         isHiding = false;
         boxC.enabled = true;
+    }
+
+            IEnumerator HidingC()
+    {
+        yield return new WaitForSeconds(1);
+        canHide = true;
     }
     
         IEnumerator wanderTime(float timeWander)

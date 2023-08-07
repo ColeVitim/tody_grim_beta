@@ -91,6 +91,7 @@ public class Control : MonoBehaviour
     
     IEnumerator MagiaChargeR;
     IEnumerator poisonR;
+    IEnumerator knockBackR;
 
     private Vector2 endPos;
     
@@ -360,6 +361,8 @@ public class Control : MonoBehaviour
 
         }
 
+
+
     BulletCounterScript.bulletCount  += .2f * Time.deltaTime;
 
     }
@@ -396,7 +399,7 @@ public class Control : MonoBehaviour
 
         }
 
-        
+     
 
     }
 
@@ -537,14 +540,16 @@ public class Control : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         magiaC = false;
-        rg2d.velocity = new Vector2(0, 0);
-        anime.Play("PlayerIdle");
 
+        //rg2d.velocity = new Vector2(0f, 0f);
+       
+        anime.Play("PlayerIdle");
+ 
         yield return new WaitForSeconds(.2f);
         gotHit = false;
         ///fizzlePar.Play();
 
-
+        
      
     }
 
